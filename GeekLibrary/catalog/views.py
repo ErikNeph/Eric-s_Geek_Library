@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Главная страница Гиковская библиотека Эрика")
+    return HttpResponse("Главная страница сайта Гиковская библиотека Эрика")
 

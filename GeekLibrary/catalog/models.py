@@ -68,7 +68,7 @@ class Book(models.Model):
 class Status(models.Model):
     name = models.CharField(max_length=20,
                             help_text="Введите статус книги",
-                            verbose_name="Статус экзепляра книг")
+                            verbose_name="Статус экземпляра книг")
 
     def __str__(self):
         return self.name
@@ -78,13 +78,13 @@ class BookInstance(models.Model):
     book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
     inv_nom = models.CharField(max_length=20, null=True,
                                help_text="Введите инвентарный номер экземпляра",
-                               verbose_name="Инвентарьный номер")
+                               verbose_name="Инвентарный номер")
     imprint = models.CharField(max_length=300,
                                help_text="Введите издательство и год выпуска",
                                verbose_name="Издательство")
     status = models.ForeignKey('Status', on_delete=models.CASCADE, null=True,
                                help_text="Изменить состояние экземпляра",
-                               verbose_name="Статус экземляра книги")
+                               verbose_name="Статус экземпляра книги")
     due_back = models.DateField(null=True, blank=True,
                                 help_text="Введите конец срока статуса",
                                 verbose_name="Дата окончания статуса")

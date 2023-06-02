@@ -49,7 +49,7 @@ class Book(models.Model):
                                  help_text="Выберете язык книги",
                                  verbose_name="Язык книги", null=True)
     author = models.ManyToManyField('Author', help_text="Выберете автора книги",
-                                    verbose_name="Автор книги", null=True)
+                                    verbose_name="Автор книги")
     summary = models.TextField(max_length=1200,
                                help_text="Введите краткое описание книги",
                                verbose_name="Аннотация книги")
@@ -63,3 +63,33 @@ class Book(models.Model):
     def get_absolute_url(self):
         # Возвращает URL-адрес для доступа к определенному экземпляру книги
         return reverse('book-detail', args=[str(self.id)])
+
+
+class Status(models.Model):
+    name = models.CharField(max_length=20,
+                            help_text="Введите статус книги",
+                            verbose_name="Статус экзепляра книг")
+
+    def __str__(self):
+        return self.name
+
+
+class BookInstance(models.Model):
+    book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
+    inv_nom = models.CharField(max_length=20, null=True,
+                               help_text="Введите инвентарный номер экземпляра",
+                               verbose_name="Инвентарьный номер")
+    imprint = models.CharField(max_length=300,
+                               help_text="Введите издательство и год выпуска",
+                               verbose_name="Издательство")
+    status = models.ForeignKey('Status', on_delete=models.CASCADE, null=True,
+                               help_text="Изменить состояние экземпляра",
+                               verbose_name="Статус экземляра книги")
+    due_back = models.DateField(null=True, blank=True,
+                                help_text="Введите конец срока статуса",
+                                verbose_name="Дата окончания статуса")
+
+    def __str__(self):
+        #  использует названия книги, и её инвентарный статус.
+        return '%s %s %s' % (self.inv_nom, self.book, self.status)
+

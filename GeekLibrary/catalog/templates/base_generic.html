@@ -16,7 +16,6 @@
         <font size=7, color="green">Сайт Гиковская библиотека Эрика</font>
     {% endblock %}
 </head>
-
 <body>
   <div class="container-fluid">
       <div class="row">
@@ -24,7 +23,7 @@
               {% block sidebar %}
               <ul class="sidebar-nav">
                   <li><a href="{% url 'index' %}">Главная страница</a></li>
-                  <li><a href="">Все книги</a></li>
+                  <li><a href="{% url 'books' %}">Все книги</a></li>
                   <li><a href="">Все авторы</a></li>
               </ul>
               {% endblock %}

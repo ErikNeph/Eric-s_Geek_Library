@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^books/$', views.BookListView.as_view(), name='books'),
     # Определяет шаблон, связывающие URL-адрес с обобщенным классом
     url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
+    url(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
 ]

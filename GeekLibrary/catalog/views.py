@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import AuthorsForm
 
 
 def index(request):
@@ -25,6 +26,16 @@ def index(request):
                            'num_visits': num_visits,
                            }
                   )
+
+
+def authors_add(request):
+    """
+    Получение данных из БД и загрузка шаблона authors_add.html
+    """
+    author = Author.objects.all()
+    authors_form = AuthorsForm
+    return render(request, "catalog/authors_add.html",
+                  {"form": authors_form, "author": author})
 
 
 class BookListView(generic.ListView):

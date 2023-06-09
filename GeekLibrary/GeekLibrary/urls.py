@@ -5,6 +5,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('authors_add/', views.authors_add, name='authors_add'),
     path('admin/', admin.site.urls),
     url(r'^books/$', views.BookListView.as_view(), name='books'),
     # Определяет шаблон, связывающие URL-адрес с обобщенным классом

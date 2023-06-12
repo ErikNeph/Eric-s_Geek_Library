@@ -1,13 +1,13 @@
-/* styles.css */
+/* css/styles.css */
 table {
-    boarder-collapse: collapse;
-    width: 100%;
+    border-collapse: collapse;
+    width: 50%;
 }
 
 th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
-    boarder-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
@@ -35,4 +35,31 @@ a {
     margin-top: 20px;
     padding: 0;
     list-style: none;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+.sidebar-nav li {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav li a {
+  color: #333;
+}
+
+.pagination {
+  margin-top: 10px;
+}
+
+.pagination a {
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #888;
 }

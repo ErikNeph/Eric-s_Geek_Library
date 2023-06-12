@@ -57,7 +57,7 @@ def delete(request, id):
         author = Author.objects.get(id=id)
         author.delete()
         return HttpResponseRedirect("/authors_add/")
-    except ObjectDoesNotExist:
+    except Author.ObjectDoesNotExist:
         return HttpResponseNotFound("<h2>Автор не найден<h2>")
 
 

@@ -93,7 +93,7 @@ class BookDelete(DeleteView):
 
 class BookListView(generic.ListView):
     model = Book
-    paginate_by = 3
+    paginate_by = 10
 
 
 class BookDetailView(generic.DetailView):
@@ -102,7 +102,7 @@ class BookDetailView(generic.DetailView):
 
 class AuthorListView(generic.ListView):
     model = Author
-    paginate_by = 4
+    paginate_by = 15
 
 
 class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):

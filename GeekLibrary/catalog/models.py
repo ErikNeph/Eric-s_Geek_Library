@@ -47,6 +47,7 @@ class Book(models.Model):
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE,
                               help_text=" Выберете жанр книги",
                               verbose_name="Жанр книги", null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     language = models.ForeignKey('Language', on_delete=models.CASCADE,
                                  help_text="Выберете язык книги",
                                  verbose_name="Язык книги", null=True)

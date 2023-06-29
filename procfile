@@ -1,1 +1,1 @@
-web: gunicorn Eric's Geek Library.wsgi --log-file-
+web: gunicorn GeekLibrary.wsgi --log-file-

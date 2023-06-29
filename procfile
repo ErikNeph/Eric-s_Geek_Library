@@ -1,1 +1,1 @@
-web: gunicorn GeekLibrary.wsgi --log-file-
+web: gunicorn GeekLibrary.wsgi --log-file -
